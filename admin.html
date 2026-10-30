@@ -40,8 +40,8 @@ input, select, textarea { font-size: 16px !important; }
           <p class="text-xs text-stone-500 mt-0.5">單一後台・即時調整・一鍵同步全店所有訂單系統</p>
         </div>
         <div class="text-right">
-          <span id="tokenStatusPill" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-            ✅ GitHub 連線正常
+          <span id="tokenStatusPill" title="登入後點一下可重新讀取試算表" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-stone-100 text-stone-600 border border-stone-300 cursor-pointer">
+            登入後連線試算表
           </span>
         </div>
       </div>
@@ -113,7 +113,7 @@ input, select, textarea { font-size: 16px !important; }
         <span class="text-[10px] bg-amber-200 text-amber-900 font-bold px-2 py-0.5 rounded-full">4大專案連動</span>
       </div>
       <p class="text-[11px] text-amber-800 leading-relaxed">
-        當遇到連假、全店公休或臨時店休時，點擊下方日期切換開關，按一次<strong>「⚡ 一鍵同步至全部 4 個網站」</strong>，系統會自動同時推送更新全部 4 個專案！
+        遇到連假、全店公休或臨時店休時，點下面的日期，再按一次<strong>「⚡ 一鍵同步至全部 4 個網站」</strong>。畫面上的開／休會寫進 Google 試算表；這個畫面沒有列出的更遠日期會保留。若只改一個網站，請用下面的分頁。
       </p>
 
       <!-- 全店通用快速開關網格（未來 14 天） -->
@@ -192,7 +192,7 @@ input, select, textarea { font-size: 16px !important; }
           </div>
 
           <button type="button" onclick="saveSingleProject('wuyi-order')" class="w-full bg-[#24292F] hover:bg-black text-white font-bold py-3 rounded-xl shadow text-xs transition">
-            💾 單獨儲存並推送到「客製蛋糕 (wuyi-order)」
+            💾 單獨儲存並同步到試算表「客製蛋糕 (wuyi-order)」
           </button>
         </div>
 
@@ -237,7 +237,7 @@ input, select, textarea { font-size: 16px !important; }
           </div>
 
           <button type="button" onclick="saveSingleProject('wuyi-cakethisweek')" class="w-full bg-[#24292F] hover:bg-black text-white font-bold py-3 rounded-xl shadow text-xs transition">
-            💾 單獨儲存並推送到「當週公版 (wuyi-cakethisweek)」
+            💾 單獨儲存並同步到試算表「當週公版 (wuyi-cakethisweek)」
           </button>
         </div>
 
@@ -283,7 +283,7 @@ input, select, textarea { font-size: 16px !important; }
           </div>
 
           <button type="button" onclick="saveBurgerProject()" class="w-full bg-[#24292F] hover:bg-black text-white font-bold py-3 rounded-xl shadow text-xs transition">
-            💾 單獨儲存並推送到「漢堡盒現貨 (wuyi-burger)」
+            💾 單獨儲存並同步到試算表「漢堡盒現貨 (wuyi-burger)」
           </button>
         </div>
 
@@ -311,7 +311,7 @@ input, select, textarea { font-size: 16px !important; }
           </div>
 
           <button type="button" onclick="saveFlowerProject()" class="w-full bg-[#24292F] hover:bg-black text-white font-bold py-3 rounded-xl shadow text-xs transition">
-            💾 單獨儲存並推送到「梧藝花藝 (wuyi-flower2)」
+            💾 單獨儲存並同步到試算表「梧藝花藝 (wuyi-flower2)」
           </button>
         </div>
 
@@ -321,28 +321,21 @@ input, select, textarea { font-size: 16px !important; }
       </div>
     </div>
 
-    <!-- 底部 GitHub Token 管理與說明 -->
+    <!-- 日期改存 Google 試算表，不再使用 GitHub Token -->
     <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 text-xs text-stone-600 space-y-2">
-      <div class="flex items-center justify-between font-bold text-stone-800">
-        <span>🔑 總控台 GitHub API Token 授權</span>
-        <span id="globalTokenPill" class="text-emerald-700 text-[11px]"></span>
-      </div>
-      <input type="password" id="globalTokenInput" placeholder="請貼上 ghp_ 開頭 Token (僅保存在此裝置)" class="w-full border border-stone-300 rounded-lg p-2 font-mono text-xs bg-stone-50" />
-      <p class="text-[10px] text-stone-400">Token 安全保存在您的手機瀏覽器中，負責向 GitHub 4 個專案執行即時免伺服器推送。</p>
+      <div class="font-bold text-stone-800">☁️ 日期存在 Google 試算表</div>
+      <p>按下儲存後，設定會寫進客人頁面本來就在用的 Google 試算表。客製蛋糕、當週公版、漢堡盒、花藝都會讀這一份，所以不用再貼 GitHub Token。</p>
+      <p id="sheetLoadNote" class="text-[10px] text-stone-400"></p>
     </div>
 
   </div>
 
 </div>
 
+<script src="calendar-gas.js"></script>
 <script>
-const GITHUB_TOKEN_KEY = "wuyi_gh_token";
-const REPOS = {
-  order: "a0952015080-netizen/wuyi-order",
-  thisweek: "a0952015080-netizen/wuyi-cakethisweek",
-  burger: "a0952015080-netizen/wuyi-burger",
-  flower: "a0952015080-netizen/wuyi-flower2"
-};
+try { localStorage.removeItem("wuyi_gh_token"); } catch (e) {}
+const HORIZON = { order: [0, 30], thisweek: [1, 14], flower: [2, 30] };
 
 // 狀態管理物件
 let globalDatesState = {}; // { "2026-10-28": true/false }
@@ -350,6 +343,17 @@ let orderDatesState = {};
 let thisweekDatesState = {};
 let flowerDatesState = {};
 let burgerSelectedStyles = ["A 款", "B 款", "C 款", "水果款"];
+let orderExtras = {};
+let thisweekExtras = {};
+let flowerExtras = {};
+let flowerDisableMonday = true;
+let gasReady = { order: false, thisweek: false, flower: false, burger: false };
+let loadedSheet = {
+  order: { disableMonday: true, map: {} },
+  thisweek: { disableMonday: true, map: {} },
+  flower: { disableMonday: true, map: {} }
+};
+let loadSeq = 0;
 
 const formatYMD = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 const WEEKDAYS = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
@@ -378,13 +382,6 @@ function switchTab(tabId) {
 
 // ==================== 初始化儀表板資料 ====================
 function initAllDashboardData() {
-  const savedT = localStorage.getItem(GITHUB_TOKEN_KEY);
-  if (savedT) {
-    document.getElementById("globalTokenInput").value = savedT;
-    const pill = document.getElementById("globalTokenPill");
-    if (pill) pill.textContent = "已綁定 Token ✓";
-  }
-
   const now = new Date();
   
   // 初始化全店開關（未來 14 天）
@@ -407,6 +404,7 @@ function initAllDashboardData() {
   renderThisweekDaysGrid();
   renderBurgerControls();
   renderFlowerDaysGrid();
+  loadCloudSettings();
 }
 
 // 1. 渲染全店同步網格
@@ -453,15 +451,12 @@ function renderOrderDaysGrid() {
   list.innerHTML = "";
   const minDays = Number(document.getElementById("order-minDays").value);
   const maxDays = Number(document.getElementById("order-maxDays").value);
-  const blockMon = document.getElementById("order-blockMon").checked;
   const now = new Date();
 
   for (let i = minDays; i <= maxDays; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     const dStr = formatYMD(d);
-    if (orderDatesState[dStr] === undefined) {
-      orderDatesState[dStr] = blockMon ? (d.getDay() !== 1) : true;
-    }
+    wuyiEnsureDay(orderDatesState, orderExtras, dStr, orderBaselineOpen);
     const isOpen = orderDatesState[dStr];
 
     const row = document.createElement("div");
@@ -488,15 +483,12 @@ function renderThisweekDaysGrid() {
   list.innerHTML = "";
   const minDays = Number(document.getElementById("thisweek-minDays").value);
   const maxDays = Number(document.getElementById("thisweek-maxDays").value);
-  const blockMon = document.getElementById("thisweek-blockMon").checked;
   const now = new Date();
 
   for (let i = minDays; i <= maxDays; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     const dStr = formatYMD(d);
-    if (thisweekDatesState[dStr] === undefined) {
-      thisweekDatesState[dStr] = blockMon ? (d.getDay() !== 1) : true;
-    }
+    wuyiEnsureDay(thisweekDatesState, thisweekExtras, dStr, thisweekBaselineOpen);
     const isOpen = thisweekDatesState[dStr];
 
     const row = document.createElement("div");
@@ -582,6 +574,7 @@ function renderFlowerDaysGrid() {
   for (let i = 2; i <= 30; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     const dStr = formatYMD(d);
+    wuyiEnsureDay(flowerDatesState, flowerExtras, dStr, flowerBaselineOpen);
     const isOpen = flowerDatesState[dStr];
 
     const card = document.createElement("div");
@@ -611,237 +604,238 @@ function quickSetFlower(action) {
   renderFlowerDaysGrid();
 }
 
-// ==================== GitHub API 推送工具核心函式 ====================
-async function githubPutFile(repo, filePath, contentObj, commitMsg) {
-  const token = document.getElementById("globalTokenInput").value.trim() || localStorage.getItem(GITHUB_TOKEN_KEY) || "";
-  if (!token) {
-    throw new Error("請先在下方輸入 GitHub Token (ghp_...)！");
-  }
-  localStorage.setItem(GITHUB_TOKEN_KEY, token);
-  const branch = "main";
-  
-  // 1. 取得最新 SHA（無快取）
-  const getUrl = `https://api.github.com/repos/${repo}/contents/${filePath}?ref=${branch}&_t=${Date.now()}`;
-  let currentSha = null;
-  const getRes = await fetch(getUrl, {
-    headers: { "Authorization": `Bearer ${token}` }
-  });
-  if (getRes.ok) {
-    const data = await getRes.json();
-    currentSha = data.sha;
-  } else if (getRes.status === 401) {
-    throw new Error(`Token 無效，無法存取 ${repo}`);
-  }
-
-  // 2. 進行 PUT 推送
-  const jsonStr = JSON.stringify(contentObj, null, 2);
-  const base64Content = btoa(unescape(encodeURIComponent(jsonStr)));
-  const putUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
-  
-  let putBody = {
-    message: commitMsg,
-    content: base64Content,
-    branch: branch
-  };
-  if (currentSha) putBody.sha = currentSha;
-
-  let putRes = await fetch(putUrl, {
-    method: "PUT",
-    headers: {
-      "Authorization": `Bearer ${token}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(putBody)
-  });
-
-  // 409 Conflict 重試防呆
-  if (putRes.status === 409) {
-    const retryGet = await fetch(getUrl, { headers: { "Authorization": `Bearer ${token}` } });
-    if (retryGet.ok) {
-      const data = await retryGet.json();
-      putBody.sha = data.sha;
-      putRes = await fetch(putUrl, {
-        method: "PUT",
-        headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
-        body: JSON.stringify(putBody)
-      });
-    }
-  }
-
-  if (!putRes.ok) {
-    const err = await putRes.json().catch(() => ({}));
-    throw new Error(`${repo} 失敗: ` + (err.message || putRes.status));
-  }
-  return true;
+// ==================== Google 試算表讀寫（客人頁面同一支 Apps Script） ====================
+function orderBaselineOpen(dStr) {
+  return wuyiOrderBaselineOpen(dStr, document.getElementById("order-blockMon").checked, new Date());
+}
+function thisweekBaselineOpen(dStr) {
+  return wuyiMondayBaselineOpen(dStr, document.getElementById("thisweek-blockMon").checked);
+}
+function flowerBaselineOpen(dStr) {
+  return wuyiMondayBaselineOpen(dStr, flowerDisableMonday);
 }
 
-// ==================== ⚡ 一鍵全店 4 大專案大同步 ====================
+function setSheetPill(mode) {
+  const pill = document.getElementById("tokenStatusPill");
+  if (!pill) return;
+  const base = "text-[11px] font-bold px-2.5 py-1 rounded-full border cursor-pointer ";
+  if (mode === "online") {
+    pill.className = base + "bg-emerald-100 text-emerald-800 border-emerald-300";
+    pill.textContent = "✅ 試算表已連線";
+  } else if (mode === "partial") {
+    pill.className = base + "bg-amber-100 text-amber-900 border-amber-300";
+    pill.textContent = "⚠️ 試算表部分連線";
+  } else if (mode === "offline") {
+    pill.className = base + "bg-rose-100 text-rose-800 border-rose-300";
+    pill.textContent = "🔴 試算表連線失敗";
+  } else {
+    pill.className = base + "bg-stone-100 text-stone-600 border-stone-300";
+    pill.textContent = "🔄 正在讀取試算表";
+  }
+}
+
+function showAlert(el, kind, text) {
+  if (!el) return;
+  const tones = {
+    info: "bg-blue-50 text-blue-900 border-blue-200",
+    ok: "bg-emerald-50 text-emerald-900 border-emerald-300",
+    err: "bg-rose-50 text-rose-900 border-rose-300"
+  };
+  el.className = "p-2 rounded-lg text-xs font-bold text-center border block " + (tones[kind] || tones.info);
+  el.textContent = text;
+}
+
+function knownBurgerPresets() {
+  return ["A","B","C","D","E","F","G","H","I","J"].map(l => `${l} 款`).concat(["水果款", "圍邊可可款"]);
+}
+
+function currentBurgerStyles() {
+  const c1 = document.getElementById("burger-custom-1").value.trim();
+  const c2 = document.getElementById("burger-custom-2").value.trim();
+  return wuyiCollectBurgerStyles(burgerSelectedStyles, c1, c2);
+}
+
+function applyBurgerFromSheet(data) {
+  const parts = wuyiPartitionStyles(data && data.styles, knownBurgerPresets());
+  if (!parts.picked.length && !parts.custom.length) return;
+  burgerSelectedStyles = parts.picked.concat(parts.custom.slice(2));
+  const c1 = document.getElementById("burger-custom-1");
+  const c2 = document.getElementById("burger-custom-2");
+  if (c1) c1.value = parts.custom[0] || "";
+  if (c2) c2.value = parts.custom[1] || "";
+  const lock = document.getElementById("burger-lockToday");
+  if (lock) lock.checked = wuyiNormalizeDateStr(data.validDate) === wuyiFormatYMD(new Date());
+}
+
+function requireReady(key) {
+  if (!gasReady[key]) {
+    throw new Error("還沒讀到試算表上的現況。請等右上角顯示已連線，或點右上角再讀一次，避免蓋掉客人頁面的日期。");
+  }
+}
+
+function rememberSheet(key, data) {
+  loadedSheet[key] = {
+    disableMonday: typeof data.disableMonday === "boolean" ? data.disableMonday : true,
+    map: wuyiExplicitMap(data)
+  };
+}
+
+function applyCalendarData(key, data, now) {
+  if (key === "order") {
+    if (typeof data.disableMonday === "boolean") {
+      document.getElementById("order-blockMon").checked = data.disableMonday;
+    }
+    rememberSheet("order", data);
+    orderExtras = wuyiAbsorbCalendar(orderDatesState, data, HORIZON.order[0], HORIZON.order[1], orderBaselineOpen, now);
+    renderOrderDaysGrid();
+  } else if (key === "thisweek") {
+    if (typeof data.disableMonday === "boolean") {
+      document.getElementById("thisweek-blockMon").checked = data.disableMonday;
+    }
+    rememberSheet("thisweek", data);
+    thisweekExtras = wuyiAbsorbCalendar(thisweekDatesState, data, HORIZON.thisweek[0], HORIZON.thisweek[1], thisweekBaselineOpen, now);
+    renderThisweekDaysGrid();
+  } else if (key === "flower") {
+    if (typeof data.disableMonday === "boolean") flowerDisableMonday = data.disableMonday;
+    rememberSheet("flower", data);
+    flowerExtras = wuyiAbsorbCalendar(flowerDatesState, data, HORIZON.flower[0], HORIZON.flower[1], flowerBaselineOpen, now);
+    renderFlowerDaysGrid();
+  } else if (key === "burger") {
+    applyBurgerFromSheet(data);
+    renderBurgerControls();
+  }
+}
+
+async function loadCloudSettings(onlyKey) {
+  const seq = ++loadSeq;
+  if (!onlyKey) setSheetPill("checking");
+  const jobs = [
+    ["order", null],
+    ["thisweek", WUYI_GAS_WEEK_CATEGORY],
+    ["flower", WUYI_GAS_FLOWER_CATEGORY],
+    ["burger", WUYI_GAS_BURGER_CATEGORY]
+  ].filter(([key]) => !onlyKey || key === onlyKey);
+  let results;
+  try {
+    results = await Promise.all(jobs.map(async ([key, category]) => {
+      try {
+        const data = await wuyiGasGet(category);
+        return { key, ok: true, data };
+      } catch (err) {
+        return { key, ok: false };
+      }
+    }));
+  } catch (err) {
+    if (seq !== loadSeq) return;
+    setSheetPill("offline");
+    return;
+  }
+  if (seq !== loadSeq) return;
+  const now = new Date();
+  results.forEach(item => {
+    gasReady[item.key] = !!item.ok;
+    if (item.ok) applyCalendarData(item.key, item.data, now);
+  });
+  if (!onlyKey) renderGlobalDaysGrid();
+  const note = document.getElementById("sheetLoadNote");
+  if (!onlyKey) {
+    const okCount = results.filter(r => r.ok).length;
+    if (okCount === results.length) setSheetPill("online");
+    else if (okCount === 0) setSheetPill("offline");
+    else setSheetPill("partial");
+    if (note) {
+      note.textContent = okCount === results.length
+        ? "已讀取試算表上目前的日期與漢堡盒款式。單獨儲存時，沒改到的日子會照原本的規則留著。"
+        : "有部分試算表沒讀到。沒讀到的項目按儲存會被擋住，以免蓋掉原來的設定。";
+    }
+  }
+}
+
+document.getElementById("tokenStatusPill")?.addEventListener("click", function () {
+  const dash = document.getElementById("mainDashboard");
+  if (!dash || dash.classList.contains("hidden")) return;
+  loadCloudSettings();
+});
+
 async function executeGlobalSyncAllProjects() {
   const btn = document.getElementById("btnGlobalSync");
   const alertEl = document.getElementById("globalSyncAlert");
+  const confirmed = window.confirm("確定要把畫面上的開／休寫進客製蛋糕、當週公版、花藝的 Google 試算表，並更新漢堡盒款式嗎？\n畫面上有的日期以畫面為準；試算表裡更遠、這個畫面沒列出的日期會保留。");
+  if (!confirmed) return;
 
   btn.disabled = true;
   btn.innerHTML = `<span>⏳ 正在同步全店 4 個網站中...</span>`;
-  alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-blue-50 text-blue-900 border border-blue-200 block";
-  alertEl.textContent = "連線 GitHub API 依序更新中...";
+  showAlert(alertEl, "info", "正在寫入 Google 試算表...");
 
   try {
-    const nowTimeStr = new Date().toLocaleString('zh-TW');
-
-    // 整理 closed 與 specialOpen 日期清單
-    let closedDates = [];
-    let specialOpenDates = [];
-    for (let dStr in globalDatesState) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (globalDatesState[dStr] === false) {
-        closedDates.push(dStr);
-      } else if (globalDatesState[dStr] === true && d.getDay() === 1) {
-        specialOpenDates.push(dStr);
-      }
+    requireReady("order");
+    requireReady("thisweek");
+    requireReady("flower");
+    requireReady("burger");
+    const now = new Date();
+    const steps = [
+      ["客製蛋糕", wuyiBuildGlobalCalendarPayload(null, loadedSheet.order.map, loadedSheet.order.disableMonday, globalDatesState, false, now)],
+      ["當週公版", wuyiBuildGlobalCalendarPayload(WUYI_GAS_WEEK_CATEGORY, loadedSheet.thisweek.map, loadedSheet.thisweek.disableMonday, globalDatesState, false, now)],
+      ["漢堡盒", wuyiBuildBurgerPayload(currentBurgerStyles(), document.getElementById("burger-lockToday").checked, now)],
+      ["花藝", wuyiBuildGlobalCalendarPayload(WUYI_GAS_FLOWER_CATEGORY, loadedSheet.flower.map, loadedSheet.flower.disableMonday, globalDatesState, true, now)]
+    ];
+    for (let i = 0; i < steps.length; i++) {
+      showAlert(alertEl, "info", `(${i + 1}/4) 正在同步「${steps[i][0]}」...`);
+      await wuyiGasPost(steps[i][1]);
     }
-
-    const schedulePayload = {
-      minDaysNotice: 1,
-      maxDaysAhead: 14,
-      weeklyClosedDay: 1,
-      closedDates: closedDates,
-      specialOpenDates: specialOpenDates,
-      updatedAt: new Date().toISOString()
-    };
-
-    // 1. 同步客製蛋糕
-    alertEl.textContent = "(1/4) 正在同步「客製蛋糕 wuyi-order」...";
-    await githubPutFile(REPOS.order, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
-
-    // 2. 同步當週公版
-    alertEl.textContent = "(2/4) 正在同步「當週公版 wuyi-cakethisweek」...";
-    await githubPutFile(REPOS.thisweek, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
-
-    // 3. 同步漢堡盒
-    alertEl.textContent = "(3/4) 正在同步「漢堡盒 wuyi-burger」...";
-    const burgerPayload = {
-      styles: burgerSelectedStyles,
-      validDate: document.getElementById("burger-lockToday").checked ? formatYMD(new Date()) : "",
-      updatedAt: new Date().toISOString()
-    };
-    await githubPutFile(REPOS.burger, "burger-config.json", burgerPayload, `update: 全店大同步款式 (${nowTimeStr})`);
-
-    // 4. 同步鮮花
-    alertEl.textContent = "(4/4) 正在同步「梧藝花藝 wuyi-flower2」...";
-    await githubPutFile(REPOS.flower, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
-
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
-    alertEl.textContent = "🎉 太神了！已成功一口氣同步全部 4 個專案網站！客人開啟任何一個連結均為最新日期！";
-
+    await loadCloudSettings();
+    showAlert(alertEl, "ok", "🎉 已寫入 Google 試算表。客人重新打開頁面就會看到最新日期。");
   } catch (err) {
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-rose-50 text-rose-900 border border-rose-300 block";
-    alertEl.textContent = "⚠️ 同步失敗：" + err.message;
+    showAlert(alertEl, "err", "⚠️ 同步失敗：" + err.message);
   } finally {
     btn.disabled = false;
     btn.innerHTML = `<span>⚡ 儲存並一鍵同步套用至全部 4 個網站</span>`;
   }
 }
 
-// ==================== 單一專案儲存 ====================
 async function saveSingleProject(projId) {
   const alertEl = document.getElementById("tabActionAlert");
-  alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-blue-50 text-blue-900 border border-blue-200 block";
-  alertEl.textContent = "正在連線 GitHub API 更新中...";
-
+  showAlert(alertEl, "info", "正在寫入 Google 試算表...");
   try {
-    const isOrder = (projId === 'wuyi-order');
-    const stateObj = isOrder ? orderDatesState : thisweekDatesState;
-    const minD = Number(document.getElementById(isOrder ? 'order-minDays' : 'thisweek-minDays').value);
-    const maxD = Number(document.getElementById(isOrder ? 'order-maxDays' : 'thisweek-maxDays').value);
-    const blockMon = document.getElementById(isOrder ? 'order-blockMon' : 'thisweek-blockMon').checked;
-
-    let closed = [];
-    let specialOpen = [];
-    for (let dStr in stateObj) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (stateObj[dStr] === false) closed.push(dStr);
-      if (stateObj[dStr] === true && d.getDay() === 1) specialOpen.push(dStr);
-    }
-
-    const payload = {
-      minDaysNotice: minD,
-      maxDaysAhead: maxD,
-      weeklyClosedDay: blockMon ? 1 : null,
-      closedDates: closed,
-      specialOpenDates: specialOpen,
-      updatedAt: new Date().toISOString()
-    };
-
-    const targetRepo = isOrder ? REPOS.order : REPOS.thisweek;
-    await githubPutFile(targetRepo, "schedule.json", payload, `update: 單獨更新 ${projId} 日期排程`);
-
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
-    alertEl.textContent = `🎉 成功！已單獨更新 ${projId}！客人開啟原網址即生效！`;
+    const isOrder = projId === "wuyi-order";
+    requireReady(isOrder ? "order" : "thisweek");
+    const now = new Date();
+    const payload = isOrder
+      ? wuyiBuildOrderPayload(orderDatesState, document.getElementById("order-blockMon").checked, orderExtras, now)
+      : wuyiBuildWeekPayload(thisweekDatesState, document.getElementById("thisweek-blockMon").checked, thisweekExtras, now);
+    await wuyiGasPost(payload);
+    await loadCloudSettings(isOrder ? "order" : "thisweek");
+    showAlert(alertEl, "ok", `🎉 成功！已更新${isOrder ? "客製蛋糕" : "當週公版"}的試算表。客人重新打開頁面即生效。`);
   } catch (err) {
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-rose-50 text-rose-900 border border-rose-300 block";
-    alertEl.textContent = "⚠️ 更新失敗：" + err.message;
+    showAlert(alertEl, "err", "⚠️ 更新失敗：" + err.message);
   }
 }
 
 async function saveBurgerProject() {
   const alertEl = document.getElementById("tabActionAlert");
-  alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-blue-50 text-blue-900 border border-blue-200 block";
-  alertEl.textContent = "正在更新漢堡盒款式...";
-
+  showAlert(alertEl, "info", "正在更新漢堡盒款式...");
   try {
-    const c1 = document.getElementById("burger-custom-1").value.trim();
-    const c2 = document.getElementById("burger-custom-2").value.trim();
-    let finalStyles = [...burgerSelectedStyles];
-    if (c1 && !finalStyles.includes(c1)) finalStyles.push(c1);
-    if (c2 && !finalStyles.includes(c2)) finalStyles.push(c2);
-
-    const payload = {
-      styles: finalStyles,
-      validDate: document.getElementById("burger-lockToday").checked ? formatYMD(new Date()) : "",
-      updatedAt: new Date().toISOString()
-    };
-
-    await githubPutFile(REPOS.burger, "burger-config.json", payload, "update: 單獨更新漢堡盒今日現貨款式");
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
-    alertEl.textContent = "🎉 成功！已更新漢堡盒今日現貨款式！客人打開 wuyi-burger 即生效！";
+    requireReady("burger");
+    const payload = wuyiBuildBurgerPayload(currentBurgerStyles(), document.getElementById("burger-lockToday").checked, new Date());
+    await wuyiGasPost(payload);
+    await loadCloudSettings("burger");
+    showAlert(alertEl, "ok", "🎉 成功！已更新漢堡盒今日現貨款式。客人打開 wuyi-burger 即生效。");
   } catch (err) {
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-rose-50 text-rose-900 border border-rose-300 block";
-    alertEl.textContent = "⚠️ 更新失敗：" + err.message;
+    showAlert(alertEl, "err", "⚠️ 更新失敗：" + err.message);
   }
 }
 
 async function saveFlowerProject() {
   const alertEl = document.getElementById("tabActionAlert");
-  alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-blue-50 text-blue-900 border border-blue-200 block";
-  alertEl.textContent = "正在更新花藝預訂日期...";
-
+  showAlert(alertEl, "info", "正在更新花藝預訂日期...");
   try {
-    let closed = [];
-    let specialOpen = [];
-    for (let dStr in flowerDatesState) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (flowerDatesState[dStr] === false) closed.push(dStr);
-      if (flowerDatesState[dStr] === true && d.getDay() === 1) specialOpen.push(dStr);
-    }
-
-    const payload = {
-      minDaysNotice: 2,
-      maxDaysAhead: 30,
-      weeklyClosedDay: 1,
-      closedDates: closed,
-      specialOpenDates: specialOpen,
-      updatedAt: new Date().toISOString()
-    };
-
-    await githubPutFile(REPOS.flower, "schedule.json", payload, "update: 單獨更新花藝預訂日期排程");
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
-    alertEl.textContent = "🎉 成功！已更新花藝預訂日期！客人打開 wuyi-flower2 即生效！";
+    requireReady("flower");
+    const payload = wuyiBuildFlowerPayload(flowerDatesState, flowerDisableMonday, flowerExtras, new Date());
+    await wuyiGasPost(payload);
+    await loadCloudSettings("flower");
+    showAlert(alertEl, "ok", "🎉 成功！已更新花藝預訂日期。客人打開 wuyi-flower2 即生效。");
   } catch (err) {
-    alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-rose-50 text-rose-900 border border-rose-300 block";
-    alertEl.textContent = "⚠️ 更新失敗：" + err.message;
+    showAlert(alertEl, "err", "⚠️ 更新失敗：" + err.message);
   }
 }
 </script>
