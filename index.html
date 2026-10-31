@@ -40,15 +40,15 @@ input, select, textarea { font-size: 16px !important; }
           <p class="text-xs text-stone-500 mt-0.5">單一後台・即時調整・一鍵同步全店所有訂單系統</p>
         </div>
         <div class="text-right">
-          <span id="tokenStatusPill" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
-            ✅ GitHub 連線正常
+          <span id="tokenStatusPill" class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
+            ⚠️ 尚未設定 Token
           </span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- 密碼驗證鎖定畫面（密碼輸入框不出現預設 5151 提示） -->
+  <!-- 密碼驗證鎖定畫面 -->
   <div id="loginCard" class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 text-center space-y-3.5">
     <div class="w-14 h-14 bg-amber-100 text-[#62502D] rounded-full flex items-center justify-center mx-auto text-2xl font-bold">🔒</div>
     <div>
@@ -67,43 +67,31 @@ input, select, textarea { font-size: 16px !important; }
   <!-- 總控台主內容（登入後解鎖） -->
   <div id="mainDashboard" class="hidden space-y-3">
 
-    <!-- 4 大網站即時狀態卡片 (傳送門) -->
+    <!-- 4 大網站傳送門 -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <a href="https://a0952015080-netizen.github.io/wuyi-order/" target="_blank" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm hover:border-[#62502D] transition block">
-        <div class="text-[10px] text-stone-500 flex justify-between">
-          <span>專案 1</span>
-          <span class="text-[#62502D] font-bold">開啟 ↗</span>
-        </div>
+        <div class="text-[10px] text-stone-500 flex justify-between"><span>專案 1</span><span class="text-[#62502D] font-bold">開啟 ↗</span></div>
         <div class="text-xs font-bold text-stone-800 mt-1">🎂 客製蛋糕</div>
         <div class="text-[10px] text-stone-500 truncate">wuyi-order</div>
       </a>
       <a href="https://a0952015080-netizen.github.io/wuyi-cakethisweek/" target="_blank" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm hover:border-[#62502D] transition block">
-        <div class="text-[10px] text-stone-500 flex justify-between">
-          <span>專案 2</span>
-          <span class="text-[#62502D] font-bold">開啟 ↗</span>
-        </div>
+        <div class="text-[10px] text-stone-500 flex justify-between"><span>專案 2</span><span class="text-[#62502D] font-bold">開啟 ↗</span></div>
         <div class="text-xs font-bold text-stone-800 mt-1">🔥 當週公版</div>
         <div class="text-[10px] text-stone-500 truncate">wuyi-cakethisweek</div>
       </a>
       <a href="https://a0952015080-netizen.github.io/wuyi-burger/" target="_blank" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm hover:border-[#62502D] transition block">
-        <div class="text-[10px] text-stone-500 flex justify-between">
-          <span>專案 3</span>
-          <span class="text-[#62502D] font-bold">開啟 ↗</span>
-        </div>
+        <div class="text-[10px] text-stone-500 flex justify-between"><span>專案 3</span><span class="text-[#62502D] font-bold">開啟 ↗</span></div>
         <div class="text-xs font-bold text-stone-800 mt-1">🍔 漢堡盒現貨</div>
         <div class="text-[10px] text-stone-500 truncate">wuyi-burger</div>
       </a>
       <a href="https://a0952015080-netizen.github.io/wuyi-flower2/" target="_blank" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm hover:border-[#62502D] transition block">
-        <div class="text-[10px] text-stone-500 flex justify-between">
-          <span>專案 4</span>
-          <span class="text-[#62502D] font-bold">開啟 ↗</span>
-        </div>
+        <div class="text-[10px] text-stone-500 flex justify-between"><span>專案 4</span><span class="text-[#62502D] font-bold">開啟 ↗</span></div>
         <div class="text-xs font-bold text-stone-800 mt-1">🌸 梧藝花藝</div>
         <div class="text-[10px] text-stone-500 truncate">wuyi-flower2</div>
       </a>
     </div>
 
-    <!-- ⚡ 頂級功能：全店一鍵神同步模式 (All-in-One Global Sync) -->
+    <!-- 全店一鍵大同步 -->
     <div class="bg-amber-50/90 rounded-2xl border-2 border-amber-300 p-3 sm:p-4 shadow-sm space-y-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-1.5 font-bold text-amber-950 text-sm">
@@ -116,7 +104,6 @@ input, select, textarea { font-size: 16px !important; }
         排程以<strong>週日～週六</strong>完整週曆排列，涵蓋未來 63 天（9 週）。遇國定假日／連續假期／節慶時，左下角標註台灣放假備註；點擊切換後按<strong>「⚡ 一鍵同步至全部 4 個網站」</strong>即可全店生效！
       </p>
 
-      <!-- 全店通用快速開關網格（未來 63 天，週日~週六 7 列排版） -->
       <div class="space-y-1.5">
         <div class="flex justify-between items-center text-xs">
           <span class="font-bold text-amber-900">點擊單日快速切換（左下角顯示放假備註）：</span>
@@ -126,18 +113,10 @@ input, select, textarea { font-size: 16px !important; }
           </div>
         </div>
 
-        <!-- 7 欄日曆星期標題（週日～週六） -->
         <div class="grid grid-cols-7 gap-1 text-center font-bold text-[11px] sm:text-xs text-stone-700 bg-amber-200/70 p-1.5 rounded-t-xl">
-          <span class="text-rose-600">週日</span>
-          <span>週一</span>
-          <span>週二</span>
-          <span>週三</span>
-          <span>週四</span>
-          <span>週五</span>
-          <span class="text-rose-600">週六</span>
+          <span class="text-rose-600">週日</span><span>週一</span><span>週二</span><span>週三</span><span>週四</span><span>週五</span><span class="text-rose-600">週六</span>
         </div>
 
-        <!-- 日曆網格內容 (未來 63 天) -->
         <div id="globalDaysGrid" class="grid grid-cols-7 gap-1 p-1 bg-white/90 rounded-b-xl border border-amber-200 max-h-80 sm:max-h-96 overflow-y-auto"></div>
       </div>
 
@@ -147,9 +126,8 @@ input, select, textarea { font-size: 16px !important; }
       <div id="globalSyncAlert" class="hidden p-2 rounded-lg text-xs font-bold text-center"></div>
     </div>
 
-    <!-- 4 大專案獨立微調分頁標籤 (Tabs) -->
+    <!-- 4 大專案分頁 -->
     <div class="bg-white rounded-2xl shadow-sm border border-stone-200 overflow-hidden">
-      <!-- 標籤導覽列 -->
       <div class="p-2 bg-stone-100 border-b border-stone-200 grid grid-cols-4 gap-1 text-center text-xs">
         <button type="button" id="tab-btn-order" onclick="switchTab('order')" class="tab-btn active py-2 rounded-lg font-bold transition">🎂 客製蛋糕</button>
         <button type="button" id="tab-btn-thisweek" onclick="switchTab('thisweek')" class="tab-btn py-2 rounded-lg font-bold transition">🔥 當週公版</button>
@@ -159,7 +137,7 @@ input, select, textarea { font-size: 16px !important; }
 
       <div class="p-4 sm:p-5 space-y-4">
 
-        <!-- ==================== TAB 1: 客製蛋糕 (wuyi-order) ==================== -->
+        <!-- TAB 1: 客製蛋糕 -->
         <div id="tab-content-order" class="tab-content space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-stone-200">
             <div>
@@ -202,18 +180,10 @@ input, select, textarea { font-size: 16px !important; }
             </div>
           </div>
 
-          <!-- 2 個月日曆網格 -->
           <div class="space-y-1">
             <span class="text-xs font-bold text-stone-700">個別單日開放/額滿（點擊切換）：</span>
-            <!-- 7 欄日曆星期標題（週日～週六） -->
             <div class="grid grid-cols-7 gap-1 text-center font-bold text-[11px] sm:text-xs text-stone-700 bg-amber-200/70 p-1.5 rounded-t-xl">
-              <span class="text-rose-600">週日</span>
-              <span>週一</span>
-              <span>週二</span>
-              <span>週三</span>
-              <span>週四</span>
-              <span>週五</span>
-              <span class="text-rose-600">週六</span>
+              <span class="text-rose-600">週日</span><span>週一</span><span>週二</span><span>週三</span><span>週四</span><span>週五</span><span class="text-rose-600">週六</span>
             </div>
             <div id="orderDaysList" class="grid grid-cols-7 gap-1 p-1 bg-stone-50 rounded-b-xl border border-stone-200 max-h-72 sm:max-h-80 overflow-y-auto"></div>
           </div>
@@ -223,7 +193,7 @@ input, select, textarea { font-size: 16px !important; }
           </button>
         </div>
 
-        <!-- ==================== TAB 2: 當週公版急單 (wuyi-cakethisweek) ==================== -->
+        <!-- TAB 2: 當週公版 -->
         <div id="tab-content-thisweek" class="tab-content hidden space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-stone-200">
             <div>
@@ -262,18 +232,10 @@ input, select, textarea { font-size: 16px !important; }
             </div>
           </div>
 
-          <!-- 2 個月日曆網格 -->
           <div class="space-y-1">
             <span class="text-xs font-bold text-stone-700">當週單日開放/額滿（點擊切換）：</span>
-            <!-- 7 欄日曆星期標題（週日～週六） -->
             <div class="grid grid-cols-7 gap-1 text-center font-bold text-[11px] sm:text-xs text-stone-700 bg-amber-200/70 p-1.5 rounded-t-xl">
-              <span class="text-rose-600">週日</span>
-              <span>週一</span>
-              <span>週二</span>
-              <span>週三</span>
-              <span>週四</span>
-              <span>週五</span>
-              <span class="text-rose-600">週六</span>
+              <span class="text-rose-600">週日</span><span>週一</span><span>週二</span><span>週三</span><span>週四</span><span>週五</span><span class="text-rose-600">週六</span>
             </div>
             <div id="thisweekDaysList" class="grid grid-cols-7 gap-1 p-1 bg-stone-50 rounded-b-xl border border-stone-200 max-h-72 sm:max-h-80 overflow-y-auto"></div>
           </div>
@@ -283,7 +245,7 @@ input, select, textarea { font-size: 16px !important; }
           </button>
         </div>
 
-        <!-- ==================== TAB 3: 漢堡盒現貨 (wuyi-burger) ==================== -->
+        <!-- TAB 3: 漢堡盒 -->
         <div id="tab-content-burger" class="tab-content hidden space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-stone-200">
             <div>
@@ -293,7 +255,6 @@ input, select, textarea { font-size: 16px !important; }
             <a href="https://a0952015080-netizen.github.io/wuyi-burger/" target="_blank" class="text-xs text-[#62502D] font-bold underline">前往客人頁面 ↗</a>
           </div>
 
-          <!-- 漢堡盒今日款式勾選清單 -->
           <div class="space-y-2 bg-stone-50 p-3 rounded-xl border border-stone-200 text-xs">
             <div class="flex justify-between items-center">
               <span class="font-bold text-stone-800">▸ 基本字母款（A～J）：</span>
@@ -306,7 +267,6 @@ input, select, textarea { font-size: 16px !important; }
             </div>
             <div id="burgerSpecialsGrid" class="grid grid-cols-2 gap-1.5 text-center"></div>
 
-            <!-- 自訂款式 -->
             <div class="pt-2 border-t border-stone-200 space-y-1">
               <span class="font-bold text-stone-800">▸ 自訂現貨款（選填）：</span>
               <div class="grid grid-cols-2 gap-1.5">
@@ -315,7 +275,6 @@ input, select, textarea { font-size: 16px !important; }
               </div>
             </div>
 
-            <!-- 綁定今日日期開關 -->
             <div class="pt-2 border-t border-stone-200">
               <label class="flex items-center gap-2 cursor-pointer font-bold text-amber-900 bg-amber-100/70 p-2 rounded-lg border border-amber-300">
                 <input type="checkbox" id="burger-lockToday" checked class="rounded text-[#62502D] w-4 h-4" />
@@ -329,7 +288,7 @@ input, select, textarea { font-size: 16px !important; }
           </button>
         </div>
 
-        <!-- ==================== TAB 4: 梧藝花藝 (wuyi-flower2) ==================== -->
+        <!-- TAB 4: 花藝 -->
         <div id="tab-content-flower" class="tab-content hidden space-y-3">
           <div class="flex items-center justify-between pb-2 border-b border-stone-200">
             <div>
@@ -339,7 +298,6 @@ input, select, textarea { font-size: 16px !important; }
             <a href="https://a0952015080-netizen.github.io/wuyi-flower2/" target="_blank" class="text-xs text-[#62502D] font-bold underline">前往客人頁面 ↗</a>
           </div>
 
-          <!-- 快速通則按鈕 -->
           <div class="grid grid-cols-4 gap-1.5 text-center text-xs">
             <button type="button" onclick="quickSetFlower('allOpen')" class="bg-stone-100 hover:bg-stone-200 p-2 rounded-lg border border-stone-300 font-semibold">全開放</button>
             <button type="button" onclick="quickSetFlower('allClose')" class="bg-stone-100 hover:bg-stone-200 p-2 rounded-lg border border-stone-300 font-semibold">全店休</button>
@@ -347,18 +305,10 @@ input, select, textarea { font-size: 16px !important; }
             <button type="button" onclick="quickSetFlower('closeTue')" class="bg-stone-100 hover:bg-stone-200 p-2 rounded-lg border border-stone-300 font-semibold">週二全休</button>
           </div>
 
-          <!-- 2 個月花藝日曆開關網格 -->
           <div class="space-y-1">
             <span class="text-xs font-bold text-stone-700">未來 2 個月花藝日曆（點擊切換可約/店休）：</span>
-            <!-- 7 欄日曆星期標題（週日～週六） -->
             <div class="grid grid-cols-7 gap-1 text-center font-bold text-[11px] sm:text-xs text-stone-700 bg-amber-200/70 p-1.5 rounded-t-xl">
-              <span class="text-rose-600">週日</span>
-              <span>週一</span>
-              <span>週二</span>
-              <span>週三</span>
-              <span>週四</span>
-              <span>週五</span>
-              <span class="text-rose-600">週六</span>
+              <span class="text-rose-600">週日</span><span>週一</span><span>週二</span><span>週三</span><span>週四</span><span>週五</span><span class="text-rose-600">週六</span>
             </div>
             <div id="flowerDaysGrid" class="grid grid-cols-7 gap-1 p-1 bg-stone-50 rounded-b-xl border border-stone-200 max-h-72 sm:max-h-80 overflow-y-auto"></div>
           </div>
@@ -368,20 +318,19 @@ input, select, textarea { font-size: 16px !important; }
           </button>
         </div>
 
-        <!-- 狀態回報提示 -->
         <div id="tabActionAlert" class="hidden p-2 rounded-lg text-xs font-bold text-center"></div>
 
       </div>
     </div>
 
-    <!-- 底部 GitHub Token 管理與說明 -->
+    <!-- GitHub Token 管理 -->
     <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 text-xs text-stone-600 space-y-2">
       <div class="flex items-center justify-between font-bold text-stone-800">
         <span>🔑 總控台 GitHub API Token 授權</span>
         <span id="globalTokenPill" class="text-emerald-700 text-[11px]"></span>
       </div>
-      <input type="password" id="globalTokenInput" value="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" placeholder="請貼上 ghp_ 開頭 Token (僅保存在此裝置)" class="w-full border border-stone-300 rounded-lg p-2 font-mono text-xs bg-stone-50" />
-      <p class="text-[10px] text-stone-400">Token 安全保存在您的瀏覽器中，負責向 GitHub 4 個專案執行即時免伺服器推送。</p>
+      <input type="password" id="globalTokenInput" value="" oninput="updateTokenStatus()" placeholder="請貼上 ghp_ 開頭 Token (僅保存在此裝置)" class="w-full border border-stone-300 rounded-lg p-2 font-mono text-xs bg-stone-50" />
+      <p class="text-[10px] text-stone-400">Token 僅保存在您的瀏覽器中，負責向 GitHub 4 個專案執行即時免伺服器推送。</p>
     </div>
 
   </div>
@@ -390,7 +339,7 @@ input, select, textarea { font-size: 16px !important; }
 
 <script>
 const GITHUB_TOKEN_KEY = "wuyi_gh_token";
-const DEFAULT_TOKEN = "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";
+const REVOKED_TOKEN = "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"; // 舊 Token：僅用於清除瀏覽器殘留
 const REPOS = {
   order: "a0952015080-netizen/wuyi-order",
   thisweek: "a0952015080-netizen/wuyi-cakethisweek",
@@ -398,8 +347,7 @@ const REPOS = {
   flower: "a0952015080-netizen/wuyi-flower2"
 };
 
-// 狀態管理物件
-let globalDatesState = {}; // { "2026-10-28": true/false }
+let globalDatesState = {};
 let orderDatesState = {};
 let thisweekDatesState = {};
 let flowerDatesState = {};
@@ -411,146 +359,73 @@ const WEEKDAYS_SHORT = ["日", "一", "二", "三", "四", "五", "六"];
 
 // 台灣國定假日與放假節慶資料庫
 const TAIWAN_HOLIDAYS = {
-  // 2024
-  "2024-01-01": "元旦",
-  "2024-02-08": "小年夜",
-  "2024-02-09": "除夕",
-  "2024-02-10": "春節初一",
-  "2024-02-11": "初二",
-  "2024-02-12": "初三",
-  "2024-02-13": "初四",
-  "2024-02-14": "初五/情人節",
-  "2024-02-28": "和平紀念日",
-  "2024-04-04": "兒童節",
-  "2024-04-05": "清明節",
-  "2024-05-01": "勞動節",
-  "2024-05-12": "母親節",
-  "2024-06-10": "端午節",
-  "2024-08-08": "父親節",
-  "2024-08-10": "七夕",
-  "2024-09-17": "中秋節",
-  "2024-10-10": "國慶日",
-  "2024-12-25": "聖誕節",
-  "2024-12-31": "跨年夜",
+  "2024-01-01": "元旦", "2024-02-08": "小年夜", "2024-02-09": "除夕", "2024-02-10": "春節初一",
+  "2024-02-11": "初二", "2024-02-12": "初三", "2024-02-13": "初四", "2024-02-14": "初五/情人節",
+  "2024-02-28": "和平紀念日", "2024-04-04": "兒童節", "2024-04-05": "清明節", "2024-05-01": "勞動節",
+  "2024-05-12": "母親節", "2024-06-10": "端午節", "2024-08-08": "父親節", "2024-08-10": "七夕",
+  "2024-09-17": "中秋節", "2024-10-10": "國慶日", "2024-12-25": "聖誕節", "2024-12-31": "跨年夜",
 
-  // 2025
-  "2025-01-01": "元旦",
-  "2025-01-27": "小年夜",
-  "2025-01-28": "除夕",
-  "2025-01-29": "春節初一",
-  "2025-01-30": "初二",
-  "2025-01-31": "初三",
-  "2025-02-01": "初四",
-  "2025-02-02": "初五",
-  "2025-02-14": "情人節",
-  "2025-02-28": "和平紀念日",
-  "2025-04-03": "兒童節補假",
-  "2025-04-04": "兒童節/清明",
-  "2025-05-01": "勞動節",
-  "2025-05-11": "母親節",
-  "2025-05-31": "端午節",
-  "2025-08-08": "父親節",
-  "2025-08-29": "七夕",
-  "2025-10-06": "中秋節",
-  "2025-10-10": "國慶日",
-  "2025-10-31": "萬聖節",
-  "2025-12-25": "聖誕節",
-  "2025-12-31": "跨年夜",
+  "2025-01-01": "元旦", "2025-01-27": "小年夜", "2025-01-28": "除夕", "2025-01-29": "春節初一",
+  "2025-01-30": "初二", "2025-01-31": "初三", "2025-02-01": "初四", "2025-02-02": "初五",
+  "2025-02-14": "情人節", "2025-02-28": "和平紀念日", "2025-04-03": "兒童節補假", "2025-04-04": "兒童節/清明",
+  "2025-05-01": "勞動節", "2025-05-11": "母親節", "2025-05-31": "端午節", "2025-08-08": "父親節",
+  "2025-08-29": "七夕", "2025-10-06": "中秋節", "2025-10-10": "國慶日", "2025-10-31": "萬聖節",
+  "2025-12-25": "聖誕節", "2025-12-31": "跨年夜",
 
-  // 2026
-  "2026-01-01": "元旦",
-  "2026-02-14": "情人節",
-  "2026-02-15": "小年夜",
-  "2026-02-16": "除夕",
-  "2026-02-17": "春節初一",
-  "2026-02-18": "初二",
-  "2026-02-19": "初三",
-  "2026-02-20": "初四",
-  "2026-02-21": "初五",
-  "2026-02-28": "和平紀念日",
-  "2026-04-04": "兒童節",
-  "2026-04-05": "清明節",
-  "2026-04-06": "補假",
-  "2026-05-01": "勞動節",
-  "2026-05-10": "母親節",
-  "2026-06-19": "端午節",
-  "2026-08-08": "父親節",
-  "2026-08-19": "七夕",
-  "2026-09-25": "中秋節",
-  "2026-10-10": "國慶日",
-  "2026-10-31": "萬聖節",
-  "2026-12-25": "聖誕節",
-  "2026-12-31": "跨年夜",
+  "2026-01-01": "元旦", "2026-02-14": "情人節", "2026-02-15": "小年夜", "2026-02-16": "除夕",
+  "2026-02-17": "春節初一", "2026-02-18": "初二", "2026-02-19": "初三", "2026-02-20": "初四",
+  "2026-02-21": "初五", "2026-02-28": "和平紀念日", "2026-04-04": "兒童節", "2026-04-05": "清明節",
+  "2026-04-06": "補假", "2026-05-01": "勞動節", "2026-05-10": "母親節", "2026-06-19": "端午節",
+  "2026-08-08": "父親節", "2026-08-19": "七夕", "2026-09-25": "中秋節", "2026-10-10": "國慶日",
+  "2026-10-31": "萬聖節", "2026-12-25": "聖誕節", "2026-12-31": "跨年夜",
 
-  // 2027
-  "2027-01-01": "元旦",
-  "2027-02-05": "小年夜",
-  "2027-02-06": "除夕",
-  "2027-02-07": "春節初一",
-  "2027-02-08": "初二",
-  "2027-02-09": "初三",
-  "2027-02-10": "初四",
-  "2027-02-11": "初五",
-  "2027-02-14": "情人節",
-  "2027-02-28": "和平紀念日",
-  "2027-04-04": "兒童節",
-  "2027-04-05": "清明節",
-  "2027-05-01": "勞動節",
-  "2027-05-09": "母親節",
-  "2027-06-09": "端午節",
-  "2027-08-08": "父親節/七夕",
-  "2027-09-15": "中秋節",
-  "2027-10-10": "國慶日",
-  "2027-10-31": "萬聖節",
-  "2027-12-25": "聖誕節",
+  "2027-01-01": "元旦", "2027-02-05": "小年夜", "2027-02-06": "除夕", "2027-02-07": "春節初一",
+  "2027-02-08": "初二", "2027-02-09": "初三", "2027-02-10": "初四", "2027-02-11": "初五",
+  "2027-02-14": "情人節", "2027-02-28": "和平紀念日", "2027-04-04": "兒童節", "2027-04-05": "清明節",
+  "2027-05-01": "勞動節", "2027-05-09": "母親節", "2027-06-09": "端午節", "2027-08-08": "父親節/七夕",
+  "2027-09-15": "中秋節", "2027-10-10": "國慶日", "2027-10-31": "萬聖節", "2027-12-25": "聖誕節",
   "2027-12-31": "跨年夜",
 
-  // 2028
-  "2028-01-01": "元旦",
-  "2028-01-25": "小年夜",
-  "2028-01-26": "除夕",
-  "2028-01-27": "春節初一",
-  "2028-01-28": "初二",
-  "2028-01-29": "初三",
-  "2028-02-14": "情人節",
-  "2028-02-28": "和平紀念日",
-  "2028-04-04": "兒童節",
-  "2028-04-05": "清明節",
-  "2028-05-01": "勞動節",
-  "2028-05-14": "母親節",
-  "2028-05-28": "端午節",
-  "2028-08-08": "父親節",
-  "2028-08-26": "七夕",
-  "2028-10-03": "中秋節",
-  "2028-10-10": "國慶日",
-  "2028-12-25": "聖誕節",
-  "2028-12-31": "跨年夜"
+  "2028-01-01": "元旦", "2028-01-25": "小年夜", "2028-01-26": "除夕", "2028-01-27": "春節初一",
+  "2028-01-28": "初二", "2028-01-29": "初三", "2028-02-14": "情人節", "2028-02-28": "和平紀念日",
+  "2028-04-04": "兒童節", "2028-04-05": "清明節", "2028-05-01": "勞動節", "2028-05-14": "母親節",
+  "2028-05-28": "端午節", "2028-08-08": "父親節", "2028-08-26": "七夕", "2028-10-03": "中秋節",
+  "2028-10-10": "國慶日", "2028-12-25": "聖誕節", "2028-12-31": "跨年夜"
 };
 
-// 取得台灣放假/節慶備註
 function getTaiwanHoliday(dStr, d) {
   if (TAIWAN_HOLIDAYS[dStr]) return TAIWAN_HOLIDAYS[dStr];
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  const md = `${String(m).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  const md = `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   const fixed = {
-    "01-01": "元旦",
-    "02-14": "情人節",
-    "02-28": "和平紀念",
-    "03-14": "白色情人",
-    "04-04": "兒童節",
-    "04-05": "清明節",
-    "05-01": "勞動節",
-    "08-08": "父親節",
-    "10-10": "國慶日",
-    "10-31": "萬聖節",
-    "12-25": "聖誕節",
-    "12-31": "跨年夜"
+    "01-01": "元旦", "02-14": "情人節", "02-28": "和平紀念", "03-14": "白色情人",
+    "04-04": "兒童節", "04-05": "清明節", "05-01": "勞動節", "08-08": "父親節",
+    "10-10": "國慶日", "10-31": "萬聖節", "12-25": "聖誕節", "12-31": "跨年夜"
   };
   return fixed[md] || "";
 }
 
-// 登入驗證（無 5151 提示）
+function getToken() {
+  return document.getElementById("globalTokenInput").value.trim();
+}
+
+// 依 Token 欄位內容更新狀態標示並存入瀏覽器
+function updateTokenStatus() {
+  const t = getToken();
+  const top = document.getElementById("tokenStatusPill");
+  const pill = document.getElementById("globalTokenPill");
+  if (t) {
+    localStorage.setItem(GITHUB_TOKEN_KEY, t);
+    top.textContent = "✅ 已設定 Token";
+    top.className = "text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300";
+    pill.textContent = "已綁定 Token ✓";
+  } else {
+    localStorage.removeItem(GITHUB_TOKEN_KEY);
+    top.textContent = "⚠️ 尚未設定 Token";
+    top.className = "text-[11px] font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300";
+    pill.textContent = "";
+  }
+}
+
 function verifyLogin() {
   const pwd = document.getElementById("pwdInput").value.replace(/[\uff01-\uff5e]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xfee0)).trim();
   if (pwd === "5151") {
@@ -563,37 +438,33 @@ function verifyLogin() {
 }
 document.getElementById("pwdInput")?.addEventListener("keydown", e => { if (e.key === "Enter") verifyLogin(); });
 
-// 分頁 Tab 切換
 function switchTab(tabId) {
   document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
   document.querySelectorAll(".tab-content").forEach(c => c.classList.add("hidden"));
-
   document.getElementById(`tab-btn-${tabId}`).classList.add("active");
   document.getElementById(`tab-content-${tabId}`).classList.remove("hidden");
 }
 
-// ==================== 初始化儀表板資料 ====================
 function initAllDashboardData() {
-  const savedT = localStorage.getItem(GITHUB_TOKEN_KEY) || DEFAULT_TOKEN;
-  if (savedT) {
-    document.getElementById("globalTokenInput").value = savedT;
-    localStorage.setItem(GITHUB_TOKEN_KEY, savedT);
-    const pill = document.getElementById("globalTokenPill");
-    if (pill) pill.textContent = "已綁定 Token ✓";
+  // 清除瀏覽器中殘留的舊 Token
+  let savedT = localStorage.getItem(GITHUB_TOKEN_KEY) || "";
+  if (savedT === REVOKED_TOKEN) {
+    localStorage.removeItem(GITHUB_TOKEN_KEY);
+    savedT = "";
   }
+  document.getElementById("globalTokenInput").value = savedT;
+  updateTokenStatus();
 
   const now = new Date();
-  
-  // 初始化全店開關（未來 63 天 = 9 週）
-  for (let i = 1; i <= 63; i++) {
+
+  // 全店 / 蛋糕 / 當週：涵蓋「今天起」0~63 天，確保 minDays=0 也有資料
+  for (let i = 0; i <= 63; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     const dStr = formatYMD(d);
-    globalDatesState[dStr] = (d.getDay() !== 1); // 預設週一休
+    globalDatesState[dStr] = (d.getDay() !== 1);
     orderDatesState[dStr] = (d.getDay() !== 1);
     thisweekDatesState[dStr] = (d.getDay() !== 1);
   }
-
-  // 初始化鮮花（未來 30~63 天）
   for (let i = 2; i <= 63; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     flowerDatesState[formatYMD(d)] = (d.getDay() !== 1);
@@ -606,87 +477,20 @@ function initAllDashboardData() {
   renderFlowerDaysGrid();
 }
 
-// 1. 渲染全店同步網格（週日～週六 7 列，未來 63 天，左下角標註台灣放假備註）
-function renderGlobalDaysGrid() {
-  const grid = document.getElementById("globalDaysGrid");
-  grid.innerHTML = "";
-  const now = new Date();
-
-  // 計算第 1 天（明天）的星期幾，以便對齊「週日~週六」
-  const firstDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-  const firstDayOfWeek = firstDay.getDay(); // 0 是週日，1 是週一...
-
-  // 補齊第 1 列在第 1 天之前的空白格子（使週日固定在第一列）
-  for (let p = 0; p < firstDayOfWeek; p++) {
-    const blankCell = document.createElement("div");
-    blankCell.className = "min-h-[52px] sm:min-h-[58px] rounded-lg bg-stone-100/50 border border-stone-200/40 opacity-40";
-    grid.appendChild(blankCell);
-  }
-
-  // 渲染未來 63 天
-  for (let i = 1; i <= 63; i++) {
-    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
-    const dStr = formatYMD(d);
-    const isOpen = globalDatesState[dStr];
-    const holidayNote = getTaiwanHoliday(dStr, d);
-    const dayOfWeek = d.getDay();
-    const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
-
-    const card = document.createElement("div");
-    card.className = `p-1 sm:p-1.5 rounded-lg border text-xs cursor-pointer select-none transition flex flex-col justify-between min-h-[52px] sm:min-h-[58px] ${
-      isOpen ? 'bg-emerald-50 border-emerald-300 text-emerald-950 font-semibold' : 'bg-rose-50 border-rose-300 text-rose-900 opacity-80'
-    } ${holidayNote ? 'ring-1 ring-rose-400' : ''}`;
-    
-    card.onclick = () => {
-      globalDatesState[dStr] = !globalDatesState[dStr];
-      renderGlobalDaysGrid();
-    };
-
-    // 格式化卡片內容：頂部顯示日期與星期，底部左下角顯示台灣放假備註，右下角顯示開/休狀態
-    card.innerHTML = `
-      <div class="flex justify-between items-start leading-none">
-        <span class="font-bold text-[11px] sm:text-xs">${dStr.slice(5)}</span>
-        <span class="text-[9px] ${isWeekend ? 'text-rose-500 font-bold' : (dayOfWeek === 1 ? 'text-amber-700 font-bold' : 'text-stone-400')}">
-          ${WEEKDAYS_SHORT[dayOfWeek]}
-        </span>
-      </div>
-      <div class="flex justify-between items-end w-full leading-tight mt-0.5">
-        <span class="text-[9px] font-bold text-rose-600 truncate max-w-[34px] sm:max-w-[46px]" title="${holidayNote || ''}">
-          ${holidayNote || ''}
-        </span>
-        <span class="text-[9px] sm:text-[10px] font-bold shrink-0 ${isOpen ? 'text-emerald-700' : 'text-rose-700'}">
-          ${isOpen ? '🟢開' : '🔴休'}
-        </span>
-      </div>
-    `;
-    grid.appendChild(card);
-  }
-}
-
-function batchSetGlobalDays(open) {
-  for (let k in globalDatesState) globalDatesState[k] = open;
-  renderGlobalDaysGrid();
-}
-
-// 通用專案日曆網格渲染工具（週日～週六 7 列排版，支援 2 個月）
+// 通用日曆渲染（週日～週六對齊，左下角顯示台灣放假備註）
 function renderCommonProjectGrid(containerId, stateObj, minDays, maxDays, blockMon, openText, closeText, onRefresh) {
   const grid = document.getElementById(containerId);
   if (!grid) return;
   grid.innerHTML = "";
   const now = new Date();
 
-  // 計算第 1 天的星期幾以對齊週日～週六
   const firstDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + minDays);
-  const firstDayOfWeek = firstDay.getDay();
-
-  // 補齊第 1 列在第 1 天之前的空白格子
-  for (let p = 0; p < firstDayOfWeek; p++) {
+  for (let p = 0; p < firstDay.getDay(); p++) {
     const blankCell = document.createElement("div");
     blankCell.className = "min-h-[52px] sm:min-h-[58px] rounded-lg bg-stone-100/50 border border-stone-200/40 opacity-40";
     grid.appendChild(blankCell);
   }
 
-  // 渲染日期
   for (let i = minDays; i <= maxDays; i++) {
     const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
     const dStr = formatYMD(d);
@@ -711,29 +515,31 @@ function renderCommonProjectGrid(containerId, stateObj, minDays, maxDays, blockM
     card.innerHTML = `
       <div class="flex justify-between items-start leading-none">
         <span class="font-bold text-[11px] sm:text-xs">${dStr.slice(5)}</span>
-        <span class="text-[9px] ${isWeekend ? 'text-rose-500 font-bold' : (dayOfWeek === 1 ? 'text-amber-700 font-bold' : 'text-stone-400')}">
-          ${WEEKDAYS_SHORT[dayOfWeek]}
-        </span>
+        <span class="text-[9px] ${isWeekend ? 'text-rose-500 font-bold' : (dayOfWeek === 1 ? 'text-amber-700 font-bold' : 'text-stone-400')}">${WEEKDAYS_SHORT[dayOfWeek]}</span>
       </div>
       <div class="flex justify-between items-end w-full leading-tight mt-0.5">
-        <span class="text-[9px] font-bold text-rose-600 truncate max-w-[34px] sm:max-w-[46px]" title="${holidayNote || ''}">
-          ${holidayNote || ''}
-        </span>
-        <span class="text-[9px] sm:text-[10px] font-bold shrink-0 ${isOpen ? 'text-emerald-700' : 'text-rose-700'}">
-          ${isOpen ? openText : closeText}
-        </span>
+        <span class="text-[9px] font-bold text-rose-600 truncate max-w-[34px] sm:max-w-[46px]" title="${holidayNote || ''}">${holidayNote || ''}</span>
+        <span class="text-[9px] sm:text-[10px] font-bold shrink-0 ${isOpen ? 'text-emerald-700' : 'text-rose-700'}">${isOpen ? openText : closeText}</span>
       </div>
     `;
     grid.appendChild(card);
   }
 }
 
-// 專案單獨整批開關
+// 1. 全店同步網格（明天起 63 天）
+function renderGlobalDaysGrid() {
+  renderCommonProjectGrid("globalDaysGrid", globalDatesState, 1, 63, true, "🟢開", "🔴休", renderGlobalDaysGrid);
+}
+
+function batchSetGlobalDays(open) {
+  for (let k in globalDatesState) globalDatesState[k] = open;
+  renderGlobalDaysGrid();
+}
+
 function batchSetProjectDays(proj, open) {
   const target = (proj === 'order') ? orderDatesState : thisweekDatesState;
   for (let k in target) target[k] = open;
-  if (proj === 'order') renderOrderDaysGrid();
-  else renderThisweekDaysGrid();
+  if (proj === 'order') renderOrderDaysGrid(); else renderThisweekDaysGrid();
 }
 
 function toggleWeeklyMon(proj) {
@@ -744,11 +550,9 @@ function toggleWeeklyMon(proj) {
     const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
     if (d.getDay() === 1) target[k] = !isBlock;
   }
-  if (proj === 'order') renderOrderDaysGrid();
-  else renderThisweekDaysGrid();
+  if (proj === 'order') renderOrderDaysGrid(); else renderThisweekDaysGrid();
 }
 
-// 2. 渲染客製蛋糕日曆（未來 2 個月）
 function renderOrderDaysGrid() {
   const minDays = Number(document.getElementById("order-minDays").value);
   const maxDays = Number(document.getElementById("order-maxDays").value);
@@ -756,7 +560,6 @@ function renderOrderDaysGrid() {
   renderCommonProjectGrid("orderDaysList", orderDatesState, minDays, maxDays, blockMon, "🟢可訂", "🔴額滿", renderOrderDaysGrid);
 }
 
-// 3. 渲染當週公版急單日曆（未來 2 個月）
 function renderThisweekDaysGrid() {
   const minDays = Number(document.getElementById("thisweek-minDays").value);
   const maxDays = Number(document.getElementById("thisweek-maxDays").value);
@@ -764,63 +567,52 @@ function renderThisweekDaysGrid() {
   renderCommonProjectGrid("thisweekDaysList", thisweekDatesState, minDays, maxDays, blockMon, "🟢可訂", "🔴額滿", renderThisweekDaysGrid);
 }
 
-// 4. 渲染漢堡盒款式按鈕
+// 漢堡盒款式按鈕
+function makeStyleButton(name) {
+  const isChecked = burgerSelectedStyles.includes(name);
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = `p-1.5 rounded-lg border text-xs font-bold transition ${
+    isChecked ? 'bg-[#62502D] text-white border-[#62502D]' : 'bg-white text-stone-700 border-stone-300'
+  }`;
+  btn.textContent = name;
+  btn.onclick = () => {
+    if (burgerSelectedStyles.includes(name)) {
+      burgerSelectedStyles = burgerSelectedStyles.filter(s => s !== name);
+    } else {
+      burgerSelectedStyles.push(name);
+    }
+    renderBurgerControls();
+  };
+  return btn;
+}
+
 function renderBurgerControls() {
   const lettersGrid = document.getElementById("burgerLettersGrid");
   lettersGrid.innerHTML = "";
-  const letters = ["A","B","C","D","E","F","G","H","I","J"];
-
-  letters.forEach(l => {
-    const name = `${l} 款`;
-    const isChecked = burgerSelectedStyles.includes(name);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `p-1.5 rounded-lg border text-xs font-bold transition ${
-      isChecked ? 'bg-[#62502D] text-white border-[#62502D]' : 'bg-white text-stone-700 border-stone-300'
-    }`;
-    btn.textContent = name;
-    btn.onclick = () => {
-      if (burgerSelectedStyles.includes(name)) {
-        burgerSelectedStyles = burgerSelectedStyles.filter(s => s !== name);
-      } else {
-        burgerSelectedStyles.push(name);
-      }
-      renderBurgerControls();
-    };
-    lettersGrid.appendChild(btn);
-  });
+  ["A","B","C","D","E","F","G","H","I","J"].forEach(l => lettersGrid.appendChild(makeStyleButton(`${l} 款`)));
 
   const specialsGrid = document.getElementById("burgerSpecialsGrid");
   specialsGrid.innerHTML = "";
-  ["水果款", "圍邊可可款"].forEach(name => {
-    const isChecked = burgerSelectedStyles.includes(name);
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = `p-1.5 rounded-lg border text-xs font-bold transition ${
-      isChecked ? 'bg-[#62502D] text-white border-[#62502D]' : 'bg-white text-stone-700 border-stone-300'
-    }`;
-    btn.textContent = name;
-    btn.onclick = () => {
-      if (burgerSelectedStyles.includes(name)) {
-        burgerSelectedStyles = burgerSelectedStyles.filter(s => s !== name);
-      } else {
-        burgerSelectedStyles.push(name);
-      }
-      renderBurgerControls();
-    };
-    specialsGrid.appendChild(btn);
-  });
+  ["水果款", "圍邊可可款"].forEach(name => specialsGrid.appendChild(makeStyleButton(name)));
 }
 
 function toggleAllLetterStyles(all) {
   const letters = ["A","B","C","D","E","F","G","H","I","J"].map(l => `${l} 款`);
-  if (all) {
-    letters.forEach(l => { if (!burgerSelectedStyles.includes(l)) burgerSelectedStyles.push(l); });
-  }
+  if (all) letters.forEach(l => { if (!burgerSelectedStyles.includes(l)) burgerSelectedStyles.push(l); });
   renderBurgerControls();
 }
 
-// 5. 渲染鮮花日曆（未來 2 個月）
+// 取得含自訂款式的最終清單
+function getFinalBurgerStyles() {
+  const c1 = document.getElementById("burger-custom-1").value.trim();
+  const c2 = document.getElementById("burger-custom-2").value.trim();
+  const finalStyles = [...burgerSelectedStyles];
+  if (c1 && !finalStyles.includes(c1)) finalStyles.push(c1);
+  if (c2 && !finalStyles.includes(c2)) finalStyles.push(c2);
+  return finalStyles;
+}
+
 function renderFlowerDaysGrid() {
   renderCommonProjectGrid("flowerDaysGrid", flowerDatesState, 2, 63, true, "🟢可約", "🔴店休", renderFlowerDaysGrid);
 }
@@ -837,60 +629,62 @@ function quickSetFlower(action) {
   renderFlowerDaysGrid();
 }
 
-// ==================== GitHub API 推送工具核心函式 ====================
+// 整理日期狀態為 closedDates / specialOpenDates
+function buildDateLists(stateObj) {
+  const closed = [];
+  const specialOpen = [];
+  for (let dStr in stateObj) {
+    const parts = dStr.split('-');
+    const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    if (stateObj[dStr] === false) closed.push(dStr);
+    else if (stateObj[dStr] === true && d.getDay() === 1) specialOpen.push(dStr);
+  }
+  closed.sort();
+  specialOpen.sort();
+  return { closed, specialOpen };
+}
+
+// ==================== GitHub API ====================
 async function githubPutFile(repo, filePath, contentObj, commitMsg) {
-  const token = document.getElementById("globalTokenInput").value.trim() || localStorage.getItem(GITHUB_TOKEN_KEY) || DEFAULT_TOKEN;
+  const token = getToken();
   if (!token) {
     throw new Error("請先在下方輸入 GitHub Token (ghp_...)！");
   }
   localStorage.setItem(GITHUB_TOKEN_KEY, token);
   const branch = "main";
-  
-  // 1. 取得最新 SHA（無快取）
+  const authHeaders = { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github+json" };
+
   const getUrl = `https://api.github.com/repos/${repo}/contents/${filePath}?ref=${branch}&_t=${Date.now()}`;
+  const putUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
   let currentSha = null;
-  const getRes = await fetch(getUrl, {
-    headers: { "Authorization": `Bearer ${token}` }
-  });
+  const getRes = await fetch(getUrl, { headers: authHeaders, cache: "no-store" });
   if (getRes.ok) {
-    const data = await getRes.json();
-    currentSha = data.sha;
-  } else if (getRes.status === 401) {
-    throw new Error(`Token 無效，無法存取 ${repo}`);
+    currentSha = (await getRes.json()).sha;
+  } else if (getRes.status === 401 || getRes.status === 403) {
+    throw new Error(`Token 無效或權限不足，無法存取 ${repo}`);
+  } else if (getRes.status !== 404) {
+    throw new Error(`${repo} 讀取失敗 (${getRes.status})`);
   }
 
-  // 2. 進行 PUT 推送
-  const jsonStr = JSON.stringify(contentObj, null, 2);
-  const base64Content = btoa(unescape(encodeURIComponent(jsonStr)));
-  const putUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
-  
-  let putBody = {
-    message: commitMsg,
-    content: base64Content,
-    branch: branch
-  };
+  const base64Content = btoa(unescape(encodeURIComponent(JSON.stringify(contentObj, null, 2))));
+  const putBody = { message: commitMsg, content: base64Content, branch: branch };
   if (currentSha) putBody.sha = currentSha;
 
-  let putRes = await fetch(putUrl, {
+  const doPut = () => fetch(putUrl, {
     method: "PUT",
-    headers: {
-      "Authorization": `Bearer ${token}`,
-      "Content-Type": "application/json"
-    },
+    headers: { ...authHeaders, "Content-Type": "application/json" },
     body: JSON.stringify(putBody)
   });
 
-  // 409 Conflict 重試防呆
-  if (putRes.status === 409) {
-    const retryGet = await fetch(getUrl, { headers: { "Authorization": `Bearer ${token}` } });
+  let putRes = await doPut();
+
+  // 409 / 422 衝突：重新取得 SHA 後重試一次
+  if (putRes.status === 409 || putRes.status === 422) {
+    const retryGet = await fetch(getUrl, { headers: authHeaders, cache: "no-store" });
     if (retryGet.ok) {
-      const data = await retryGet.json();
-      putBody.sha = data.sha;
-      putRes = await fetch(putUrl, {
-        method: "PUT",
-        headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" },
-        body: JSON.stringify(putBody)
-      });
+      putBody.sha = (await retryGet.json()).sha;
+      putRes = await doPut();
     }
   }
 
@@ -901,7 +695,7 @@ async function githubPutFile(repo, filePath, contentObj, commitMsg) {
   return true;
 }
 
-// ==================== ⚡ 一鍵全店 4 大專案大同步 ====================
+// ==================== 一鍵全店同步 ====================
 async function executeGlobalSyncAllProjects() {
   const btn = document.getElementById("btnGlobalSync");
   const alertEl = document.getElementById("globalSyncAlert");
@@ -913,53 +707,36 @@ async function executeGlobalSyncAllProjects() {
 
   try {
     const nowTimeStr = new Date().toLocaleString('zh-TW');
-
-    // 整理 closed 與 specialOpen 日期清單
-    let closedDates = [];
-    let specialOpenDates = [];
-    for (let dStr in globalDatesState) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (globalDatesState[dStr] === false) {
-        closedDates.push(dStr);
-      } else if (globalDatesState[dStr] === true && d.getDay() === 1) {
-        specialOpenDates.push(dStr);
-      }
-    }
+    const { closed, specialOpen } = buildDateLists(globalDatesState);
 
     const schedulePayload = {
       minDaysNotice: 1,
       maxDaysAhead: 63,
       weeklyClosedDay: 1,
-      closedDates: closedDates,
-      specialOpenDates: specialOpenDates,
+      closedDates: closed,
+      specialOpenDates: specialOpen,
       updatedAt: new Date().toISOString()
     };
 
-    // 1. 同步客製蛋糕
     alertEl.textContent = "(1/4) 正在同步「客製蛋糕 wuyi-order」...";
     await githubPutFile(REPOS.order, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
 
-    // 2. 同步當週公版
     alertEl.textContent = "(2/4) 正在同步「當週公版 wuyi-cakethisweek」...";
     await githubPutFile(REPOS.thisweek, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
 
-    // 3. 同步漢堡盒
     alertEl.textContent = "(3/4) 正在同步「漢堡盒 wuyi-burger」...";
     const burgerPayload = {
-      styles: burgerSelectedStyles,
+      styles: getFinalBurgerStyles(),
       validDate: document.getElementById("burger-lockToday").checked ? formatYMD(new Date()) : "",
       updatedAt: new Date().toISOString()
     };
     await githubPutFile(REPOS.burger, "burger-config.json", burgerPayload, `update: 全店大同步款式 (${nowTimeStr})`);
 
-    // 4. 同步鮮花
     alertEl.textContent = "(4/4) 正在同步「梧藝花藝 wuyi-flower2」...";
-    await githubPutFile(REPOS.flower, "schedule.json", schedulePayload, `update: 全店大同步排程 (${nowTimeStr})`);
+    await githubPutFile(REPOS.flower, "schedule.json", { ...schedulePayload, minDaysNotice: 2 }, `update: 全店大同步排程 (${nowTimeStr})`);
 
     alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
-    alertEl.textContent = "🎉 太神了！已成功一口氣同步全部 4 個專案網站！客人開啟任何一個連結均為最新日期！";
-
+    alertEl.textContent = "🎉 已成功同步全部 4 個專案網站！客人開啟任何一個連結均為最新日期！";
   } catch (err) {
     alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-rose-50 text-rose-900 border border-rose-300 block";
     alertEl.textContent = "⚠️ 同步失敗：" + err.message;
@@ -981,15 +758,7 @@ async function saveSingleProject(projId) {
     const minD = Number(document.getElementById(isOrder ? 'order-minDays' : 'thisweek-minDays').value);
     const maxD = Number(document.getElementById(isOrder ? 'order-maxDays' : 'thisweek-maxDays').value);
     const blockMon = document.getElementById(isOrder ? 'order-blockMon' : 'thisweek-blockMon').checked;
-
-    let closed = [];
-    let specialOpen = [];
-    for (let dStr in stateObj) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (stateObj[dStr] === false) closed.push(dStr);
-      if (stateObj[dStr] === true && d.getDay() === 1) specialOpen.push(dStr);
-    }
+    const { closed, specialOpen } = buildDateLists(stateObj);
 
     const payload = {
       minDaysNotice: minD,
@@ -1000,8 +769,7 @@ async function saveSingleProject(projId) {
       updatedAt: new Date().toISOString()
     };
 
-    const targetRepo = isOrder ? REPOS.order : REPOS.thisweek;
-    await githubPutFile(targetRepo, "schedule.json", payload, `update: 單獨更新 ${projId} 日期排程`);
+    await githubPutFile(isOrder ? REPOS.order : REPOS.thisweek, "schedule.json", payload, `update: 單獨更新 ${projId} 日期排程`);
 
     alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
     alertEl.textContent = `🎉 成功！已單獨更新 ${projId}！客人開啟原網址即生效！`;
@@ -1017,18 +785,11 @@ async function saveBurgerProject() {
   alertEl.textContent = "正在更新漢堡盒款式...";
 
   try {
-    const c1 = document.getElementById("burger-custom-1").value.trim();
-    const c2 = document.getElementById("burger-custom-2").value.trim();
-    let finalStyles = [...burgerSelectedStyles];
-    if (c1 && !finalStyles.includes(c1)) finalStyles.push(c1);
-    if (c2 && !finalStyles.includes(c2)) finalStyles.push(c2);
-
     const payload = {
-      styles: finalStyles,
+      styles: getFinalBurgerStyles(),
       validDate: document.getElementById("burger-lockToday").checked ? formatYMD(new Date()) : "",
       updatedAt: new Date().toISOString()
     };
-
     await githubPutFile(REPOS.burger, "burger-config.json", payload, "update: 單獨更新漢堡盒今日現貨款式");
     alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
     alertEl.textContent = "🎉 成功！已更新漢堡盒今日現貨款式！客人打開 wuyi-burger 即生效！";
@@ -1044,15 +805,7 @@ async function saveFlowerProject() {
   alertEl.textContent = "正在更新花藝預訂日期...";
 
   try {
-    let closed = [];
-    let specialOpen = [];
-    for (let dStr in flowerDatesState) {
-      const parts = dStr.split('-');
-      const d = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
-      if (flowerDatesState[dStr] === false) closed.push(dStr);
-      if (flowerDatesState[dStr] === true && d.getDay() === 1) specialOpen.push(dStr);
-    }
-
+    const { closed, specialOpen } = buildDateLists(flowerDatesState);
     const payload = {
       minDaysNotice: 2,
       maxDaysAhead: 63,
@@ -1061,7 +814,6 @@ async function saveFlowerProject() {
       specialOpenDates: specialOpen,
       updatedAt: new Date().toISOString()
     };
-
     await githubPutFile(REPOS.flower, "schedule.json", payload, "update: 單獨更新花藝預訂日期排程");
     alertEl.className = "p-2 rounded-lg text-xs font-bold text-center bg-emerald-50 text-emerald-900 border border-emerald-300 block";
     alertEl.textContent = "🎉 成功！已更新花藝預訂日期！客人打開 wuyi-flower2 即生效！";
